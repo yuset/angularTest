@@ -1,0 +1,13 @@
+.glossary input {
+    width: 30%;
+    float: left;
+}
+
+.glossary button {
+    float: left;
+    width: 14%;
+    border: 1px solid #B1B1B1;
+    background: #e2e2e2;
+    margin-left: 5px;
+    box-shadow: 0px 3px 3px #888888;
+}

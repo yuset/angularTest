@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-12 header">
+    <div class="col-sm-4">
+      <span>Healthcare.gov</span>
+    </div>
+    <div class="col-sm-8">
+      <a routerLink="/blog">Blog</a>
+      <a routerLink="/glossary">Glossary</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+  </div>
+  <div class="col-sm-12 actions">
+    <div class="col-sm-12">Glossary</div>
+    <div class="col-sm-10 glossary">
+        <input type="text"  (keyup.enter)="search(criteria.value)" class="form-control" id="search" placeholder="Search" #criteria>
+        <button class="btn"  (click)="search(criteria.value)">OK</button>
+    </div>
+    <div class="col-sm-2 drop">
+
+      <div ngbDropdown class="d-inline-block dropdown" >
+        <button class="btn btn-outline-primary language" id="dropdownMenu1" ngbDropdownToggle>{{select}}</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <button class="dropdown-item" (click)="filter('en')">English</button>
+          <button class="dropdown-item" (click)="filter('sp')">Spanish</button>
+          <button class="dropdown-item" (click)="filter('both')">Both</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 content">
+    <div *ngFor="let item of blog_items;" class="blogs">
+      <div class="blog">
+        <div class="col-sm-10 blog-title"><a href="http://healthcare.gov{{item.url}}" target="_blank">{{item.title}}</a></div>
+        <div class="col-sm-12 blog-content" [innerHTML]="item.excerpt"></div>
+      </div>
+    </div>
+  </div>
+</div>
