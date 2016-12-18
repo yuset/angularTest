@@ -12,20 +12,34 @@
   
   <div class="col-sm-12 content">
       <div class="form-contact">
-        <div>Contact Us</div>
+        <div class="title">Contact Us</div>
         
-        <!--<form [formGroup]="userForm" (submit)="saveUser()">
-          <input formControlName="name" id="name" placeholder="Name" [(ngModel)]="userForm.controls.name"/>
-          <control-messages [control]="userForm.controls.name"></control-messages>
-
-          <input formControlName="email" id="email" placeholder="Email" [(ngModel)]="userForm.controls.email"/>
-          <control-messages [control]="userForm.controls.email"></control-messages>
-
-          <textarea formControlName="message" id="message" placeholder="Message" [(ngModel)]="userForm.controls.message"></textarea>
-          <control-messages [control]="userForm.controls.message"></control-messages>
-
-          <button type="submit" [disabled]="!userForm.valid">Submit</button>
-        </form>-->
+         <form [formGroup]="contactForm">
+            <div class="item-contact">
+                <input type="text" formControlName="name" placeholder="Name">
+            </div>
+            <div class="item-contact">
+              <input class="email" type="text" formControlName="email" placeholder="Email"> 
+              <div ngbDropdown class="d-inline-block dropdown">
+                <button class="btn btn-outline-primary language" id="dropdownMenu1" ngbDropdownToggle>{{selection}}</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <button class="dropdown-item" (click)="select(0)">Healthcare Marketplace</button>
+                  <button class="dropdown-item" (click)="select(1)">Technical Support</button>
+                  <button class="dropdown-item" (click)="select(2)">Website Feedback</button>
+                </div>
+              </div>
+            </div>
+            <div class="item-contact">
+              <textarea formControlName="message" placeholder="Message"></textarea>
+            </div>
+            <div *ngIf="contactForm.controls.email.errors || contactForm.controls.name.errors || contactForm.controls.message.errors || selection == 'Reason for contact'" class="alert alert-danger alert-message">
+              <strong>Invalid</strong> This form is invalid. Every field is required
+            </div>   
+            <div *ngIf="!contactForm.controls.email.errors && !contactForm.controls.name.errors && !contactForm.controls.message.errors && selection != 'Reason for contact'" class="alert alert-success alert-message">
+              <strong>Valid!</strong> This form is valid.
+            </div> 
+            <button class="btn submit" type="submit">Submit</button>
+        </form>
       </div>
   </div>
 </div>

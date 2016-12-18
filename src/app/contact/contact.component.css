@@ -1,8 +1,72 @@
 .form-contact {
-    width: 30%;
+    width: 33%;
     margin: 30px;
 }
 
 .form-control {
     margin: 20px;
+}
+
+.item-contact {
+    padding: 10px;
+}
+.item-contact input,
+.item-contact textarea 
+{
+    margin: 0 auto;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 4px #cdcdcd;
+    padding-left: 10px;
+}
+.item-contact input {
+    width: 57%;
+    height: 40px;
+}
+
+.item-contact textarea{
+    width: 97%;
+    height: 100px;
+} 
+
+
+.form-contact .dropdown-item {
+    width: 100%;
+    float: none;
+}
+
+.item-contact .dropdown .dropdown-menu {
+    width: auto;
+}
+
+.item-contact .language.dropdown-toggle::before {
+    right: 20px;
+    
+}
+
+.item-contact .language.dropdown-toggle::after {
+    right: 20px;
+    
+}
+
+.email {
+    float: left;
+    margin-top: 10px !important;
+    margin-right: 15px !important;
+}
+
+.alert-message {
+    width: 93%;
+    margin-left: 10px;
+}
+
+.submit {
+    float: right;
+    margin-right: 20px;
+}
+
+.form-contact .title {
+    font-size: 17px;
+    margin-bottom: 20px;
 }

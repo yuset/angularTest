@@ -16,7 +16,6 @@
         <button class="btn"  (click)="search(criteria.value)">OK</button>
     </div>
     <div class="col-sm-2 drop">
-
       <div ngbDropdown class="d-inline-block dropdown" >
         <button class="btn btn-outline-primary language" id="dropdownMenu1" ngbDropdownToggle>{{select}}</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -28,10 +27,10 @@
     </div>
   </div>
   <div class="col-sm-12 content">
-    <div *ngFor="let item of blog_items;" class="blogs">
-      <div class="blog">
-        <div class="col-sm-10 blog-title"><a href="http://healthcare.gov{{item.url}}" target="_blank">{{item.title}}</a></div>
-        <div class="col-sm-12 blog-content" [innerHTML]="item.excerpt"></div>
+    <div *ngFor="let item of glossary_items;" class="items">
+      <div class="item">
+        <div class="col-sm-10 item-title"><a href="http://healthcare.gov{{item.url}}" target="_blank">{{item.title}}</a></div>
+        <div class="col-sm-12 item-content" [innerHTML]="item.excerpt"></div>
       </div>
     </div>
   </div>

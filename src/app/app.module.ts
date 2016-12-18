@@ -10,6 +10,7 @@ import { GlossaryComponent } from './glossary/glossary.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

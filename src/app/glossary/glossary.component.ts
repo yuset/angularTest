@@ -8,7 +8,7 @@ import { Http, Response } from '@angular/http';
 })
 export class GlossaryComponent implements OnInit {
 
-  blog_items = [];
+  glossary_items = [];
   all_items = [];
   select = "Language";
   criteria = '';
@@ -20,34 +20,42 @@ export class GlossaryComponent implements OnInit {
       (data)=>{
         if(data.status == 200){
           data.json().glossary.forEach(element => {
-            this.blog_items.push(element);
+            this.glossary_items.push(element);
             this.all_items.push(element);
           });
+          this.glossary_items.sort(this.sort);
+          this.all_items.sort(this.sort);
         }
       });
   }
 
+ 
+ sort(a,b){
+    return a.title > b.title ? 1 : -1; 
+  }
+ 
+
   filter(lang){
-    this.blog_items = [];
+    this.glossary_items = [];
 
     if(lang == 'en'){
       this.select = 'English';
       
       this.all_items.forEach(element => {
         if(element.lang == 'en')
-          this.blog_items.push(element);
+          this.glossary_items.push(element);
       });
     }
     if(lang == 'sp'){ 
       this.select = 'Spanish';
       this.all_items.forEach(element => {
         if(element.lang == 'es')
-          this.blog_items.push(element);
+          this.glossary_items.push(element);
       });
     }
     if(lang == 'both') {
       this.select = 'Both';
-      this.blog_items = this.all_items;
+      this.glossary_items = this.all_items;
     }
     console.log(lang);
   }
@@ -56,10 +64,10 @@ export class GlossaryComponent implements OnInit {
     console.log(value);
     if(value == '')
     {
-      this.blog_items = this.all_items;
+      this.glossary_items = this.all_items;
     }
     else{
-      this.blog_items = [];
+      this.glossary_items = [];
       var lang = 'none';
       if(this.select != 'Language' && this.select != 'Both'){
         lang = (this.select == 'English')? 'en': 'es';
@@ -69,11 +77,11 @@ export class GlossaryComponent implements OnInit {
         if(element.excerpt.indexOf(value) !== -1){
           if(lang != 'none'){
             if(lang == element.lang){
-              this.blog_items.push(element);
+              this.glossary_items.push(element);
             }
           }
           else{
-            this.blog_items.push(element);
+            this.glossary_items.push(element);
           }
         }
       });
